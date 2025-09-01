@@ -1,0 +1,354 @@
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SrHot - Conteúdo Exclusivo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  html,
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a;
+    color: #eee;
+    overflow-x: hidden;
+  }
+
+  /* Animated gradient background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(270deg, #ff0047, #ff7300, #ff0047, #ff7300);
+    background-size: 800% 800%;
+    animation: gradientShift 30s ease infinite;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Glow effect for buttons */
+  .glow-button {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .glow-button::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #ff0047, #ff7300, #ff0047);
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  .glow-button:hover::before,
+  .glow-button:focus-visible::before {
+    opacity: 1;
+  }
+  .glow-button:hover {
+    box-shadow: 0 0 12px #ff0047, 0 0 20px #ff7300;
+  }
+
+  /* Pulsing animation for buttons */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 6px #ff0047, 0 0 12px #ff7300;
+    }
+    50% {
+      box-shadow: 0 0 12px #ff0047, 0 0 24px #ff7300;
+    }
+  }
+  .pulse {
+    animation: pulseGlow 3s infinite;
+  }
+
+  /* Fade in animation */
+  .fade-in {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth fade out for welcome message */
+  .fade-out {
+    animation: fadeOut 1.5s ease forwards;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0;
+    }
+  }
+
+  /* Video container hover glow */
+  .video-container:hover video {
+    filter: brightness(1.1) drop-shadow(0 0 8px #ff0047);
+    transition: filter 0.4s ease;
+  }
+
+  /* Telegram floating button */
+  #telegram-btn {
+    transition: all 0.3s ease;
+  }
+  #telegram-btn:hover {
+    box-shadow: 0 0 15px #0088cc, 0 0 30px #00aaff;
+    transform: scale(1.1);
+  }
+
+  /* Scrollbar styling for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ff0047;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff7300;
+  }
+</style>
+</head>
+<body class="relative min-h-screen flex flex-col items-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 pb-24">
+
+  <!-- Mensagem de boas-vindas animada -->
+  <div
+    id="welcome-msg"
+    class="fixed top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-700 via-red-700 to-orange-600 text-white font-semibold rounded-xl px-6 py-3 shadow-lg z-50 opacity-0 animate-fade-in"
+    style="animation-fill-mode: forwards; animation-duration: 1.2s;"
+    role="alert"
+    aria-live="polite"
+  >
+    Bem-vindo(a) ao mundo exclusivo da SrHot!
+  </div>
+
+  <main class="w-full max-w-7xl mt-24 space-y-20 z-10">
+
+    <!-- Seções de vídeos -->
+    <section id="vazadas1" class="space-y-6">
+      <p class="text-pink-500 text-center text-lg font-semibold opacity-0 fade-in" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+        Prepare-se para o conteúdo exclusivo…
+      </p>
+      <h2 class="text-white text-3xl sm:text-4xl font-extrabold text-center opacity-0 fade-in" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+        VAZADAS 1
+      </h2>
+      <div class="video-container max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-shadow duration-500 opacity-0 fade-in" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+        <video
+          class="w-full h-auto rounded-xl"
+          controls
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          preload="metadata"
+          playsinline
+          src="videos/vazadas1.mp4"
+          aria-label="Vídeo exclusivo vazadas 1 mostrando conteúdo autoral da modelo contratada"
+        ></video>
+      </div>
+      <div class="flex justify-center">
+        <a
+          href="#"
+          class="glow-button pulse inline-block bg-gradient-to-r from-pink-700 via-red-700 to-orange-600 text-white font-semibold rounded-xl px-8 py-3 shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-600"
+          tabindex="0"
+          aria-label="Acessar VIP - VAZADAS 1"
+        >
+          Acessar VIP
+        </a>
+      </div>
+    </section>
+
+    <section id="vazadas2" class="space-y-6">
+      <p class="text-pink-500 text-center text-lg font-semibold opacity-0 fade-in" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+        Prepare-se para o conteúdo exclusivo…
+      </p>
+      <h2 class="text-white text-3xl sm:text-4xl font-extrabold text-center opacity-0 fade-in" style="animation-delay: 1s; animation-fill-mode: forwards;">
+        VAZADAS 2
+      </h2>
+      <div class="video-container max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-shadow duration-500 opacity-0 fade-in" style="animation-delay: 1.2s; animation-fill-mode: forwards;">
+        <video
+          class="w-full h-auto rounded-xl"
+          controls
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          preload="metadata"
+          playsinline
+          src="videos/vazadas2.mp4"
+          aria-label="Vídeo exclusivo vazadas 2 mostrando conteúdo autoral da modelo contratada"
+        ></video>
+      </div>
+      <div class="flex justify-center">
+        <a
+          href="#"
+          class="glow-button pulse inline-block bg-gradient-to-r from-pink-700 via-red-700 to-orange-600 text-white font-semibold rounded-xl px-8 py-3 shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-600"
+          tabindex="0"
+          aria-label="Acessar VIP - VAZADAS 2"
+        >
+          Acessar VIP
+        </a>
+      </div>
+    </section>
+
+    <section id="vazadas3" class="space-y-6">
+      <p class="text-pink-500 text-center text-lg font-semibold opacity-0 fade-in" style="animation-delay: 1.4s; animation-fill-mode: forwards;">
+        Prepare-se para o conteúdo exclusivo…
+      </p>
+      <h2 class="text-white text-3xl sm:text-4xl font-extrabold text-center opacity-0 fade-in" style="animation-delay: 1.6s; animation-fill-mode: forwards;">
+        VAZADAS 3
+      </h2>
+      <div class="video-container max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-shadow duration-500 opacity-0 fade-in" style="animation-delay: 1.8s; animation-fill-mode: forwards;">
+        <video
+          class="w-full h-auto rounded-xl"
+          controls
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          preload="metadata"
+          playsinline
+          src="videos/vazadas3.mp4"
+          aria-label="Vídeo exclusivo vazadas 3 mostrando conteúdo autoral da modelo contratada"
+        ></video>
+      </div>
+      <div class="flex justify-center">
+        <a
+          href="#"
+          class="glow-button pulse inline-block bg-gradient-to-r from-pink-700 via-red-700 to-orange-600 text-white font-semibold rounded-xl px-8 py-3 shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-600"
+          tabindex="0"
+          aria-label="Acessar VIP - VAZADAS 3"
+        >
+          Acessar VIP
+        </a>
+      </div>
+    </section>
+
+    <section id="vazadas4" class="space-y-6">
+      <p class="text-pink-500 text-center text-lg font-semibold opacity-0 fade-in" style="animation-delay: 2.0s; animation-fill-mode: forwards;">
+        Prepare-se para o conteúdo exclusivo…
+      </p>
+      <h2 class="text-white text-3xl sm:text-4xl font-extrabold text-center opacity-0 fade-in" style="animation-delay: 2.2s; animation-fill-mode: forwards;">
+        VAZADAS 4
+      </h2>
+      <div class="video-container max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-shadow duration-500 opacity-0 fade-in" style="animation-delay: 2.4s; animation-fill-mode: forwards;">
+        <video
+          class="w-full h-auto rounded-xl"
+          controls
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          preload="metadata"
+          playsinline
+          src="videos/vazadas4.mp4"
+          aria-label="Vídeo exclusivo vazadas 4 mostrando conteúdo autoral da modelo contratada"
+        ></video>
+      </div>
+      <div class="flex justify-center">
+        <a
+          href="#"
+          class="glow-button pulse inline-block bg-gradient-to-r from-pink-700 via-red-700 to-orange-600 text-white font-semibold rounded-xl px-8 py-3 shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-600"
+          tabindex="0"
+          aria-label="Acessar VIP - VAZADAS 4"
+        >
+          Acessar VIP
+        </a>
+      </div>
+    </section>
+
+    <section id="vazadas5" class="space-y-6">
+      <p class="text-pink-500 text-center text-lg font-semibold opacity-0 fade-in" style="animation-delay: 2.6s; animation-fill-mode: forwards;">
+        Prepare-se para o conteúdo exclusivo…
+      </p>
+      <h2 class="text-white text-3xl sm:text-4xl font-extrabold text-center opacity-0 fade-in" style="animation-delay: 2.8s; animation-fill-mode: forwards;">
+        VAZADAS 5
+      </h2>
+      <div class="video-container max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-shadow duration-500 opacity-0 fade-in" style="animation-delay: 3s; animation-fill-mode: forwards;">
+        <video
+          class="w-full h-auto rounded-xl"
+          controls
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          preload="metadata"
+          playsinline
+          src="videos/vazadas5.mp4"
+          aria-label="Vídeo exclusivo vazadas 5 mostrando conteúdo autoral da modelo contratada"
+        ></video>
+      </div>
+      <div class="flex justify-center">
+        <a
+          href="#"
+          class="glow-button pulse inline-block bg-gradient-to-r from-pink-700 via-red-700 to-orange-600 text-white font-semibold rounded-xl px-8 py-3 shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-600"
+          tabindex="0"
+          aria-label="Acessar VIP - VAZADAS 5"
+        >
+          Acessar VIP
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botão flutuante do Telegram -->
+  <a
+    href="https://t.me/SrHotBr"
+    target="_blank"
+    rel="noopener noreferrer"
+    id="telegram-btn"
+    aria-label="Acessar canal Telegram SrHotBr"
+    class="fixed bottom-6 right-6 bg-gradient-to-tr from-blue-500 to-cyan-400 text-white p-4 rounded-full shadow-lg flex items-center justify-center text-3xl hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-blue-400 transition-transform duration-300 z-50"
+  >
+    <i class="fab fa-telegram-plane"></i>
+  </a>
+
+<script>
+  // Fade out welcome message after 5 seconds
+  window.addEventListener('load', () => {
+    const welcome = document.getElementById('welcome-msg');
+    setTimeout(() => {
+      welcome.classList.add('fade-out');
+    }, 5000);
+  });
+</script>
+</body>
+</html>
