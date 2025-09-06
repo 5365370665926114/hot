@@ -1,0 +1,7 @@
+body{font-family:Arial,Helvetica,sans-serif;padding:20px;background:#111;color:#eee}
+header{display:flex;gap:8px;align-items:center;margin-bottom:16px}
+#results{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.card{background:#1b1b1b;padding:8px;border-radius:6px}
+.card img{width:100%;border-radius:4px}
+.card h3{font-size:14px;margin:6px 0}
+.card a{display:inline-block;margin-top:6px;padding:6px 8px;background:#ff3b3b;text-decoration:none;color:#fff;border-radius:4px}
